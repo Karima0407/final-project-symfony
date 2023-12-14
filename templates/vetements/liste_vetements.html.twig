@@ -1,0 +1,26 @@
+{# templates/vetements/liste_vetements.html.twig #} {% extends 'base.html.twig'
+%} {% block title %}Liste des Vetements{% endblock %} {% block body %}
+<h2>Liste des Vetements</h2>
+<ul class="liste_clothes">
+  {% for select in selects %}
+  <li class="liste_vetements">
+    {% if select.image is not null %}
+    <div class="liste_images_div">
+      <img
+        class="liste_images"
+        src="{{ asset('/img/' ~ select.image) }}"
+        alt="Vetements Image"
+      />
+    </div>
+    {% endif %}
+    <div><span class="description_boucle">Description:</span></div>
+    <p class="vetement_description">{{ select.description }}</p>
+    <br />
+    {# <strong>Description détaillée:</strong> {{ select.descriptionDetaille
+    }}<br />
+    #} <strong>Prix:</strong> {{ select.prix }}€<br />
+    <a href="">Ajouter au panier</a>
+  </li>
+  {% endfor %}
+</ul>
+{% endblock %}

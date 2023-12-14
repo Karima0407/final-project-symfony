@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %} {% block title %}Hello VetementsController!{%
+endblock %} {% block body %}
+
+<div class="example-wrapper userForm">
+  <h4>Formulaire d'Ajout d'un Vetement! ✅</h4>
+  {{ form_start(vetement) }}
+  <div class="mb-1">
+    {% if vetement.vars.value.image is not null %}
+    <img
+      src="{{ asset('img' ~ vetement.vars.value.image) }}"
+      alt="Vetements Image"
+    />
+    {% endif %}
+  </div>
+  <div class="mb-1">
+    {{ form_row(vetement.description, {'label': "Description : ", 'attr': {
+                      'class': 'form-control',
+                      'placeholder': "Votre Description ..."
+    }}) }}
+  </div>
+  <div class="mb-1">
+    {{ form_row(vetement.descriptionDetaille, {'label': "descrption détaillée : ", 'attr': {
+                      'class': 'form-control',
+                      'placeholder': "Votre description détaillée ..."
+
+
+
+    }}) }}
+  </div>
+  <div class="mb-1">
+    {{ form_row(vetement.prix, {'label': "Prix : ", 'attr': {
+                      'class': 'form-control',
+                      'placeholder': "Votre Prix ..."
+
+
+
+    }}) }}
+  </div>
+  <button type="submit" class="btn btn-success">Ajouter</button>
+  {{ form_end(vetement) }}
+</div>
+
+{% endblock %}
